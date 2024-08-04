@@ -2,8 +2,13 @@
 **使用realsense d435i相机，基于pytorch实现yolov5目标检测，实时返回检测目标相机坐标系下的位置信息。**
 
 # 1.Environment：
+0.（可选）使用miniconda创建虚拟环境
+```bash
+conda create -n yolo5py38 python=3.8
+conda activate yolo5py38
+```
 
-1.一个可以运行YOLOv5的python环境
+1.一个可以运行YOLOv5的python环境,也可以直接使用yolov5的requirements.txt
 
 ```bash
 pip install -r requirements.txt
@@ -15,21 +20,23 @@ pip install -r requirements.txt
 pip install pyrealsense2
 ```
 
-**在下面两个环境中测试成功**
+**在下面几个环境中测试成功**
 
 - **win10** python 3.8 Pytorch 1.10.2+gpu CUDA 11.3  NVIDIA GeForce MX150
 
 - **ubuntu16.04**  python 3.6 Pytorch 1.7.1+cpu
 
+- **ubuntu20.04**  python 3.8 Pytorch 1.8.1+cpu
+
 # 2.Results：
 
 - Colorimage:
 
-![image-20220213144406079](https://github.com/Thinkin99/yolov5_d435i_detection/blob/main/image/image-20220213144406079.png)
+![image-20220213144406079](https://github.com/L53317/realtime-object-detection-yolov5-d435i/tree/main/images/image-20220213144406079.png)
 
 - Colorimage and depthimage:
 
-![image-20220213143921695](https://github.com/Thinkin99/yolov5_d435i_detection/blob/main/image/image-20220213143921695.png)
+![image-20220213143921695](https://github.com/L53317/realtime-object-detection-yolov5-d435i/tree/main/images/image-20220213143921695.png)
 
 # 3.Model config：
 
@@ -58,7 +65,7 @@ threshold:
 # 计算设备
 # - cpu
 # - 0 <- 使用GPU
-device: '0'
+device: 'cpu'
 ```
 
 # 4.Camera config：
@@ -86,8 +93,16 @@ for i in range(len(xyxy_list)):
     camera_xyz_list.append(camera_xyz)
     #print(camera_xyz_list)
 ```
-# 6.Reference:
+
+# 6.TODO
+- [*] 使用最新的yolov10替换目前的模型文件；
+- [*] 接入ROS并计算与机器人的坐标转换;
+- [*] 当前对小物品的检测距离有限，如鼠标的检测距离仅有约0.5m
+
+# 7.Reference:
 
 [https://github.com/ultralytics/yolov5](https://github.com/ultralytics/yolov5)
 
 [https://github.com/mushroom-x/yolov5-simple](https://github.com/mushroom-x/yolov5-simple)
+
+[https://github.com/Thinkin99/yolov5_d435i_detection](https://github.com/Thinkin99/yolov5_d435i_detection)
