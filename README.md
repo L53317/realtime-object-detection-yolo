@@ -1,5 +1,5 @@
-# yolov5_d435i_detection
-**使用realsense d435i相机，基于pytorch实现yolov5目标检测，实时返回检测目标相机坐标系下的位置信息。**
+# realtime-object-detection-yolo
+**使用realsense d435i,d455相机，基于pytorch实现yolo(v5)目标检测，实时返回检测目标相机坐标系下的位置信息。**
 
 # 1.Environment：
 0.（可选）使用miniconda创建虚拟环境
